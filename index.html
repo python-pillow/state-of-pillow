@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>State of Pillow</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -12,29 +12,747 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="stylesheet" href="css/timeline.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/png" href="favicon.png"> 
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+                    <h1>State of Pillow</h1>
+                    <img class="img-thumbnail" width="50%" src="img/ploneconf.png">
+                    <h4>December 8, 2020</h4>
+                    <aside class="notes">
+                        Welcome to the "State of Pillow" talk at Plone Conference 2020!
+                    </aside>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/tweet.png">
+                    <aside class="notes">
+                        This tweet from the @ploneconf Twitter account is why I'm here.
+                    </aside>
+                </section>
+                <section>
+                    <img  class="img-thumbnail" src="img/erico.png">
+                    <aside class="notes">
+                        I think it was from Érico Andrei.
+                    </aside>
+                </section>
+                <section>
+                    <h1>Thank you</h1>
+                    <h1>🙏</h1>
+                    <aside class="notes">
+                        Thank you Érico and Plone community! Good to be back.
+                    </aside>
+                </section>
+                <section>
+                    <img  class="img-thumbnail" src="img/tweet2.png">
+                    <aside class="notes">
+                        My initial response was "Oh no I have to do work!" But I did it, and here we all are.
+                    </aside>
+                </section>
+				<section>
+                    <h1>Alex Clark</h1>
+                    <img class="img-thumbnail" src="img/aclark-jobs.jpg">
+                    <h4 class="pt-5">Creator of Python Pillow</h4>
+                    <aside class="notes">
+                        I am Alex Clark, creator of Python Pillow.
+                    </aside>
+                </section>
+				<section>
+                    <img src="img/pillow-logo-light-text-1280x640.png">
+                    <aside class="notes">
+                        Pillow is the "friendly" PIL fork.
+                    </aside>
+                </section>
+				<section>
+                    <h2>Friendly</h2>
+                    <img src="img/pillow-logo-light-text-1280x640.png">
+                    <h2>PIL fork</h2>
+                    <aside class="notes">
+                        "Friendly" to convey collaborative effort with PIL.
+                    </aside>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/wikipedia.png">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Python_Imaging_Library">https://en.wikipedia.org/wiki/Python_Imaging_Library</a>
+                    <aside class="notes">
+                        PIL is the Python Imaging Library, by Fredrik Lundh and contributors.
+                    </aside>
+                </section>
+				<section>
+                    <h1>Raise your Zoom hand ✋ if you know the story</h1>
+                    <aside class="notes">
+                        Who knows the story? 
+                    </aside>
+                </section>
+				<section>
+                    <img class="img-thumbnail" src="img/slide2.png">
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-July/006423.html">https://mail.python.org/pipermail/image-sig/2010-July/006423.html</a>
+                    <aside class="notes">
+                        This is the email I sent to the (now defunct) Image-SIG mailing list announcing the release of Pillow 1.0 in 2010.
+                    </aside>
+                </section>
+                <section>
+                    <h1>Read these</h1>
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-July/thread.html">https://mail.python.org/pipermail/image-sig/2010-July/thread.html</a>
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-August/thread.html">https://mail.python.org/pipermail/image-sig/2010-August/thread.html</a>
+                    <aside class="notes">
+                        I recommend that you read the full thread which occurs over two months in late July early August 2010. Lots of interesting comments. We're not going to cover them all but we will cover a few.
+                    </aside>
+                </section>
+				<section>
+                    <h1>Image-SIG</h1>
+                    <img class="img-thumbnail" src="img/july.png">
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-July/thread.html">https://mail.python.org/pipermail/image-sig/2010-July/thread.html</a>
+                    </ul>
+                    <aside class="notes">
+                        My message was sent at the end of July 2010, so the link is at the bottom of the July 2010 threaded view.
+                    </aside>
+                </section>
+                <section>
+                    <h1>Image-SIG</h1>
+                    <img class="img-thumbnail" src="img/august.png">
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-August/thread.html">https://mail.python.org/pipermail/image-sig/2010-August/thread.html</a>
+                    <aside class="notes">
+                        Most replies came in early August, so followup links are at the top of the August 2010 threaded view.
+                    </aside>
+                </section>
+				<section>
+                    <img class="img-thumbnail" src="img/slide1.png">
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-August/006429.html">https://mail.python.org/pipermail/image-sig/2010-August/006429.html</a>
+                    <aside class="notes">
+                        Including Fredrik's reply, which came on Aug 1 2010.
+                    </aside>
+                </section>
+				<section>
+                    <img class="img-thumbnail" src="img/slide16.png">
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-August/006429.html">https://mail.python.org/pipermail/image-sig/2010-August/006429.html</a>
+                </section>
+                <section>
+                    <h1>Image-SIG</h1>
+                    <blockquote>"At least a packaging
+fork means that someone's over there is producing something more than
+invectives, but I'd still prefer a patch."</blockquote>
+                    <p>&mdash; Fredrik Lundh on Pillow</p>
+                </section>
+                <section>
+                    <img class="img-thumbnail" width="50%" src="img/invective2.png">
+                </section>
+                <section>
+                    <h1>How did we get here?</h1>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/nirvana.jpg">
+                    <h1>February 1991</h1>
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>1991</h2>
+                          <p>Python 0.9.0 (alt.sources)</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/foos.jpg">
+                    <h1>June 1995</h1>
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>1991</h2>
+                          <p>Python 0.9.0 (alt.sources)</p>
+                        </div>
+                      </div>
+                      <div class="col-6 right">
+                        <div class="content">
+                          <h2>1995</h2>
+                          <p>PIL</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <img class="img-thumbnail" width="80%" src="img/Windows98.png">
+                    <h1>November 1998</h1>
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>1998</h2>
+                          <p>Zope</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/party-like-its-1999.jpg">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/addfolder.jpg">
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>1998</h2>
+                          <p>Zope</p>
+                        </div>
+                      </div>
+                      <div class="col-6 right">
+                        <div class="content">
+                          <h2>1999</h2>
+                          <p>Zope2</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <img src="img/distutils.png">
+                </section>
+                <section>
+                    <img src="img/distutils2.png">
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2000</h2>
+                          <p>Python 2.0 (distutils)</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <img src="img/plone2002.png">
+                </section>
+                <section>
+                    <img src="img/plone2002-2.png">
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2000</h2>
+                          <p>Python 2.0 (distutils)</p>
+                        </div>
+                      </div>
+                      <div class="col-6 right">
+                        <div class="content">
+                          <h2>2001</h2>
+                          <p>Plone</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/Eris_and_dysnomia2.jpg">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/Eris_and_dysnomia2.jpg">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Eris_(dwarf_planet)">https://en.wikipedia.org/wiki/Eris_(dwarf_planet)</a>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/Eris_and_dysnomia2.jpg">
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/Eris_(dwarf_planet)">https://en.wikipedia.org/wiki/Eris_(dwarf_planet)</a>
+                    <h1>2005</h1>
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2005</h2>
+                          <p>Buildout (Internal)</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <img class="img-thumbnail" width="80%" src="img/conference-2006-logo.gif">
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2005</h2>
+                          <p>Buildout (Internal)</p>
+                        </div>
+                      </div>
+                      <div class="col-6 right">
+                        <div class="content">
+                          <h2>2006</h2>
+                          <p>setuptools</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <h1>How did we get here?</h1>
+                </section>
+                <section>
+                    <h1>Issues</h1>
+                    <ul>
+                        <li>Python and PIL were created in 1991 and 1995 respectively.</li> 
+                        <li>Distutils was added to Python core in 2000 in Python 2.0.</li>
+                        <li>PIL used distutils.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Issues</h1>
+                    <ul>
+                        <li>Plone is Buildout-able as of 3.2a1 (2008)</li>
+                        <li>Buildout requires setuptools</li>
+                        <li>PIL is not setuptools compatible</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Issues</h1>
+                    <ul>
+                        <li>Installation</li>
+                        <li>Runtime</li>
+                        <li>Human</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Like watching a car crash</h1>
+                </section>
+                <section>
+                    <img src="img/road-junction.jpg">
+                </section>
+                <section>
+                    <img width="100%" src="img/mindblown.gif">
+                </section>
+                <section>
+                    <h1>This. Did. Not. Work.</h1> 
+                    <pre class="text-light bg-info rounded"> 
+                        # buildout.cfg
+                        [buildout]
+                        parts = plone
+            
+                        [plone]
+                        recipe = plone.recipe.zope2instance
+                        eggs =
+                            PIL
+                            Plone
+                    </pre>
+                </section>
+                <section>
+                    <h1>And. I. Really. Wanted. It. Too.</h1> 
+                    <pre class="text-light bg-info rounded"> 
+                        # buildout.cfg
+                        [buildout]
+                        parts = plone
+            
+                        [plone]
+                        recipe = plone.recipe.zope2instance
+                        eggs =
+                            PIL
+                            Plone
+                    </pre>
+                </section>
+                <section>
+                    <img src="img/slide14.png">
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-August/006443.html">https://mail.python.org/pipermail/image-sig/2010-August/006443.html</a>
+                </section>
+                <section>
+                    <h3>As Good as It Gets (1997)</h3>
+                    <blockquote>
+                        Melvin Udall : I've got this, what, ailment? My doctor, a shrink that I used to go to all the time, he says that in fifty or sixty percent of the cases, a pill really helps. I hate pills. Very dangerous thing, pills. Hate. I'm using the word "hate" here, about pills. Hate. 
+                    </blockquote>
+                    <a target="_blank" href="https://www.imdb.com/title/tt0119822/?ref_=tt_ch">https://www.imdb.com/title/tt0119822/?ref_=tt_ch</a>
+                </section>
+                <section>
+                    <h1>Maybe this worked?</h1>
+                    <pre class="text-light bg-info rounded"> 
+ # buildout.cfg
+ [buildout]
+ find-links = https://dist.plone.org/thirdparty/PIL-1.1.7.tar.gz
+ parts = plone
+ 
+ [plone]
+ recipe = plone.recipe.zope2instance
+ eggs =
+     PIL
+     Plone
+                    </pre>
+                </section>
+                <section>
+                    <h1>It did. But why and at what cost?</h1>
+                </section>
+                <section>
+                    <img src="img/slide15.png">
+                </section>
+                <section>
+                    <h1>Like watching a car crash</h1>
+                </section>
+                <section>
+                    <img src="img/road-junction.jpg">
+                </section>
+                <section>
+                    <img width="100%" src="img/mindblown.gif">
+                </section>
+                <section>
+                    <h1>Hence, Pillow</h1>
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2010</h2>
+                          <p>Pillow 1.0</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/slide17.png">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/diff.png">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/diff2.png">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/tweet3.png">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/fixed.png">
+                    <a target="_blank" href="https://github.com/python-pillow/Pillow/pull/5078">https://github.com/python-pillow/Pillow/pull/5078</a>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/7047_plone20site20admincov.jpg">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/psa1.jpg">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/psa3.jpg">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/psa4.jpg">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/psa2.jpg">
+                </section>
+                <section>
+                    <img class="img-thumbnail" width="50%" src="img/invective2.png">
+                </section>
+                <section>
+                    <h1>Guilty</h1>
+                </section>
+                <section>
+                    <h3>As Good as It Gets (1997)</h3>
+                    <blockquote>
+                        Melvin Udall : I've got this, what, ailment? My doctor, a shrink that I used to go to all the time, he says that in fifty or sixty percent of the cases, a pill really helps. I hate pills. Very dangerous thing, pills. Hate. I'm using the word "hate" here, about pills. Hate. 
+                    </blockquote>
+                    <a target="_blank" href="https://www.imdb.com/title/tt0119822/?ref_=tt_ch">https://www.imdb.com/title/tt0119822/?ref_=tt_ch</a>
+                </section>
+				<section>
+                    <img src="img/slide.png">
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-August/006480.html">https://mail.python.org/pipermail/image-sig/2010-August/006480.html</a>
+                    <aside class="note">
+                        patch
+                    </aside>
+                </section>
+                <section>
+                    <img width="100%" src="img/what-is-this-i-dont-even.jpg">
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2010</h2>
+                          <p>Pillow 1.0</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <h1>Buildout 👍</h1>
+                    <pre class="text-light bg-info rounded"> 
+                        # buildout.cfg
+                        [buildout]
+                        parts = pillow
+            
+                        [pillow]
+                        recipe = zc.recipe.egg
+                    </pre>
+                </section>
+                <section>
+                    <h1>Buildout 👍</h1>
+                    <pre class="text-light bg-info rounded"> 
+                        # buildout.cfg
+                        [buildout]
+                        parts = plone
+            
+                        [plone]
+                        recipe = plone.recipe.zope2instance
+                        eggs =
+                            Pillow
+                            Plone
+                    </pre>
+                </section>
+                <section>
+                    <img width="100%" src="img/fireworks.webp">
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2010</h2>
+                          <p>Pillow 1.0</p>
+                        </div>
+                      </div>
+                      <div class="col-6 right">
+                        <div class="content">
+                          <h2>2012</h2>
+                          <p>Pillow 1.7.8</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <h1>Packaging fork</h1>
+                    <blockquote>Pillow is a "friendly" fork of the Python Imaging Library. The goal is to see if any improvement can be made to the packaging situation by opening up development to the public.</blockquote>
+                    <p>&mdash;Alex Clark, Pillow 1.0 README</p>
+                </section>
+                <section>
+                    <img src="img/unfriendly.png">
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2012-December/007120.html">https://mail.python.org/pipermail/image-sig/2012-December/007120.html</a>
+                </section>
+                <section>
+                    <h1>Unfriendly fork</h1>
+                    <img src="img/unfriendly2.png">
+                    <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2012-December/007120.html">https://mail.python.org/pipermail/image-sig/2012-December/007120.html</a>
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2013</h2>
+                          <p>Pillow 2.0</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <img src="img/python3.png">
+                </section>
+                <section>
+                    <img src="img/pillow2.png">
+                </section>
+                <section>
+                    <h1>Python 3</h1>
+                    <blockquote>Pillow &gt;= 2.0.0 supports Python versions: 2.6, 2.7, 3.2, 3.3</blockquote><blockquote>Pillow &lt; 2.0.0 supports Python versions: 2.4, 2.5, 2.6, 2.7</blockquote>
+                </section>
+                <section>
+                    <img width="100%" src="img/fireworks.webp">
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2013</h2>
+                          <p>Pillow 2.0</p>
+                        </div>
+                      </div>
+                      <div class="col-6 right">
+                        <div class="content">
+                          <h2>2014</h2>
+                          <p>Pillow logo!</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <h1 id="">Logo by</h1>
+                    <h2>Alastair Houghton</h2>
+                    <blockquote>"Pillow should have a logo"</blockquote>
+                    <a target="_blank" href="https://github.com/python-pillow/Pillow/issues/575">https://github.com/python-pillow/Pillow/issues/575</a>
+                    <p>Mar 26, 2014</p>
+                </section>
+                <section>
+                    <img src="img/pillow-logo-light-text-1280x640.png">
+                </section>
+                <section>
+                    <img width="100%" src="img/fireworks.webp">
+                </section>
+				<section>
+                    <h1>Arbitrary milestones issue!</h1>
+                    <h2>By wiredfool</h2>
+                    <blockquote>"We're at 2000 stars! Seems like only last month that we were at 1000."</blockquote>
+                    <a target="_blank" href="https://github.com/python-pillow/Pillow/issues/1512">https://github.com/python-pillow/Pillow/issues/1512</a>
+                    <p>Oct 27, 2015</p>
+                </section>
+                <section>
+                    <h1>Milestones</h1>
+                    <img src="img/milestones.png">
+                </section>
+                <section>
+                    <img width="100%" src="img/fireworks.webp">
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2015</h2>
+                          <p>Pillow 2.7</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <h1>Release notes</h1>
+                </section>
+                <section>
+                    <img width="100%" src="img/fireworks.webp">
+                </section>
+                <section>
+                    <h4>Release notes</h4>
+                    <img class="img-thumbnail" src="img/releasenotes.png">
+                    <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                </section>
+                <section>
+                    <h4>Release notes</h4>
+                    <img class="img-thumbnail" src="img/releasenotes2.png">
+                    <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                </section>
+                <section>
+                    <h4>Release notes</h4>
+                    <img class="img-thumbnail" src="img/releasenotes3.png">
+                    <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                </section>
+                <section>
+                    <h4>Release notes</h4>
+                    <img class="img-thumbnail" src="img/releasenotes4.png">
+                    <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                </section>
+                <section>
+                    <h4>Release notes</h4>
+                    <img class="img-thumbnail" src="img/releasenotes5.png">
+                    <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                </section>
+                <section>
+                    <h4>Release notes</h4>
+                    <img class="img-thumbnail" src="img/releasenotes6.png">
+                    <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                </section>
+                <section>
+                    <h4>Release notes</h4>
+                    <img class="img-thumbnail" src="img/releasenotes7.png">
+                    <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                </section>
+                <section>
+                    <h4>Release notes</h4>
+                    <img class="img-thumbnail" src="img/releasenotes8.png">
+                    <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                </section>
+                <section>
+                    <h2>Quarterly release schedule</h2>
+                    <blockquote>"Pillow is released quarterly on January 2nd, April 1st, July 1st and October 15th. Patch releases are created if the latest release contains severe bugs, or if security fixes are put together before a scheduled release."</blockquote>
+                    <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/releaseschedule.png">
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/tidelift.png">
+                    <a href="https://github.com/python-pillow/Pillow/issues/3469">https://github.com/python-pillow/Pillow/issues/3469</a>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/tidelift3.png">
+                    <a href="https://github.com/python-pillow/Pillow/issues/3469">https://github.com/python-pillow/Pillow/issues/3469</a>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/tidelift2.png">
+                </section>
+                <section>
+                    <h4>Contributors 👏</h4>
+                    <img class="img-thumbnail" src="img/contributors.png">
+                </section>
+                <section>
+                    <h4>Contributors 👏</h4>
+                    <img class="img-thumbnail" src="img/contributors2.png">
+                </section>
+                <section>
+                    <h4>Contributors 👏</h4>
+                    <img class="img-thumbnail" src="img/contributors3.png">
+                </section>
+                <section>
+                    <h4>Contributors 👏</h4>
+                    <img class="img-thumbnail" src="img/contributors4.png">
+                </section>
+                <section>
+                    <h1>So many contributors and users. Thank you.</h1>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/tweet.png">
+                    <aside class="notes">
+                        This tweet from the @ploneconf Twitter account is why I'm here.
+                    </aside>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/tweet4.png">
+                    <a href="https://twitter.com/aclark4life/status/1316480179531907072">https://twitter.com/aclark4life/status/1316480179531907072</a>
+                </section>
+				<section>
+                    <h1>Timeline</h1>
+                    <div class="timeline">
+                      <div class="col-6 left">
+                        <div class="content">
+                          <h2>2015</h2>
+                          <p>Pillow 2.7</p>
+                        </div>
+                      </div>
+                      <div class="col-6 right">
+                        <div class="content">
+                          <h2>2020</h2>
+                          <p>Pillow 8.0.1</p>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+                <section>
+                    <h1>Thank you</h1>
+                    <h1>🙏</h1>
+                    <aside class="notes">
+                    </aside>
+                </section>
 			</div>
 		</div>
-
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
+        <script src="https://kit.fontawesome.com/b99cce5dfd.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 	</body>
 </html>

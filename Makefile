@@ -43,3 +43,7 @@ include base.mk
 #APP := my_app
 #MESSAGE := My update
 #virtualenv: python-virtualenv-3-8
+install:
+	npm install
+serve:
+	npm start
