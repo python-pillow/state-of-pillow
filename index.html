@@ -456,7 +456,7 @@ invectives, but I'd still prefer a patch."</blockquote>
                 <section>
                     <h1>How did we get here?</h1>
                     <aside class="notes">
-                        Remember I asked. How did we get here? How did we get to the birth of Pillow in 2010?
+                        Remember I asked: how did we get here? How did we get to the birth of Pillow in 2010?
                     </aside>
                 </section>
                 <section>
@@ -530,7 +530,7 @@ invectives, but I'd still prefer a patch."</blockquote>
                             Plone
                     </pre>
                     <aside class="notes">
-                        Because I couldn't do this.
+                        Because I couldn't do what I wanted to, which was to use PIL in a buildout.
                     </aside>
                 </section>
                 <section>
@@ -558,13 +558,73 @@ invectives, but I'd still prefer a patch."</blockquote>
                     </aside>
                 </section>
                 <section>
+                    <h1>Maybe this worked?</h1>
+                    <pre class="text-light bg-info rounded"> 
+ # buildout.cfg
+ [buildout]
+ find-links = https://dist.plone.org/thirdparty/PIL-1.1.7.tar.gz
+ parts = plone
+ 
+ [plone]
+ recipe = plone.recipe.zope2instance
+ eggs =
+     PIL
+     Plone
+                    </pre>
+                    <aside class="notes">
+                        Here's one of these third party packages in use.
+                    </aside>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/7047_plone20site20admincov.jpg">
+                    <aside class="notes">
+                        I wrote a Plone book and it was published in July 2010.
+                    </aside>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/psa3.jpg">
+                    <aside class="notes">
+                        I included this technique in the book.
+                    </aside>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/psa4.jpg">
+                    <aside class="notes">
+                        I had to explain "PILwoTk".
+                    </aside>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/psa2.jpg">
+                    <aside class="notes">
+                        I had to explain the "PIL problem".
+                    </aside>
+                </section>
+                <section>
+                    <img class="img-thumbnail" width="50%" src="img/invective2.png">
+                    <aside class="notes">
+                        Referring to PIL as "the problem" is probably an invective.
+                    </aside>
+                </section>
+                <section>
+                    <h1>Guilty</h1>
+                    <aside class="notes">
+                        My apologies to Fredrik.
+                    </aside>
+                </section>
+                <section>
+                    <img class="img-thumbnail" src="img/psa1.jpg">
+                    <aside class="notes">
+                        I mentioned pip, but I'm not entirely sure why.
+                    </aside>
+                </section>
+                <section>
                     <h3>As Good as It Gets (1997)</h3>
                     <blockquote>
                         Melvin Udall : I've got this, what, ailment? My doctor, a shrink that I used to go to all the time, he says that in fifty or sixty percent of the cases, a pill really helps. I hate pills. Very dangerous thing, pills. Hate. I'm using the word "hate" here, about pills. Hate. 
                     </blockquote>
                     <a target="_blank" href="https://www.imdb.com/title/tt0119822/?ref_=tt_ch">https://www.imdb.com/title/tt0119822/?ref_=tt_ch</a>
                     <aside class="notes">
-                        I'm using the word "hate" to describe how I felt about this situation.
+                        Anyway I'm using the word "hate" to describe how I felt about this situation.
                     </aside>
                 </section>
                 <section>
@@ -582,34 +642,27 @@ invectives, but I'd still prefer a patch."</blockquote>
      Plone
                     </pre>
                     <aside class="notes">
-                        Here it is in all its terribleness.
+                        Remember I said "Maybe this worked?"
                     </aside>
                 </section>
                 <section>
-                    <h1>It did. But why? And at what cost?</h1>
+                    <h1>It did. But why? At what cost?</h1>
                     <aside class="notes">
-                        Repackaging with "from setuptools import setup" instead of "from distutils import setup" worked.
-                    </aside>
-                </section>
-                <section>
-                    <blockquote>"For this you will pay a terrible price."</blockquote>
-                    <p>&mdash;Ancient Proverb</p>
-                    <aside class="notes">
-                        But I didn't like it.
+                        It did. I put it in my book. Importing "setup" from setuptools instead of distutils and repackaging worked.
                     </aside>
                 </section>
                 <section>
                     <img width="80%" src="img/slide15.png">
                     <a target="_blank" href="https://pypi.org/project/PIL/#history">https://pypi.org/project/PIL/#history</a>
                     <aside class="notes">
-                        As it turns out the newest PIL on PyPI was, and is, 1.1.6.
+                        The newest PIL on PyPI was, and still is, 1.1.6.
                     </aside>
                 </section>
                 <section>
                     <img width="80%" src="img/slide18.png">
                     <a target="_blank" href="https://pypi.org/project/PIL/#history">https://pypi.org/project/PIL/#history</a>
                     <aside class="notes">
-                        With find-links, we can add a third party distribution link to our buildout.
+                        With find-links, we can add the third party distribution link with newer version 1.1.7 to our buildout.
                     </aside>
                 </section>
                 <section>
@@ -617,18 +670,50 @@ invectives, but I'd still prefer a patch."</blockquote>
                     <pre class="bg-info p-3">
 [buildout]
 find-links = https://dist.plone.org/thirdparty/PIL-1.1.7.tar.gz
-…
-[versions]
-PIL = 1.1.7
                     </pre>
                     <aside class="notes">
-                        This worked but I didn't like it.
+                        With no PIL version specified and the PyPI index, PIL 1.1.7 is installed.
+                    </aside>
+                </section>
+                <section>
+                    <h1>Unless</h1>
+                    <pre class="text-light bg-info rounded p-3"> 
+[buildout]
+newest = false
+                    </pre>
+                    <h1>!?</h1>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1>I kid! I kid!</h1>
+                    <p>
+                        <code>newest = false</code>
+                    </p>
+                    <h1>Only matters if</h1>
+                    <ul class="mt-3">
+                        <li>PIL already installed</li>
+                        <li>Network down</li>
+                    </ul>
+                    <a target="_blank" href="http://www.buildout.org/en/latest/reference.html#buildout-configuration-options">http://www.buildout.org/en/latest/reference.html#buildout-configuration-options</a>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <img width="100%" src="img/what-is-this-i-dont-even.jpg">
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <blockquote>"For this you will pay a terrible price."</blockquote>
+                    <p>&mdash;Ancient Proverb</p>
+                    <aside class="notes">
                     </aside>
                 </section>
                 <section>
                     <img src="img/road-junction.jpg">
                     <aside class="notes">
-                        It was like watching a slow motion car crash.
+                        As I said looking back it's like watching a slow motion car crash.
                     </aside>
                 </section>
                 <section>
@@ -671,27 +756,6 @@ PIL = 1.1.7
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/pull/5078">https://github.com/python-pillow/Pillow/pull/5078</a>
                 </section>
                 <section>
-                    <img class="img-thumbnail" src="img/7047_plone20site20admincov.jpg">
-                </section>
-                <section>
-                    <img class="img-thumbnail" src="img/psa1.jpg">
-                </section>
-                <section>
-                    <img class="img-thumbnail" src="img/psa3.jpg">
-                </section>
-                <section>
-                    <img class="img-thumbnail" src="img/psa4.jpg">
-                </section>
-                <section>
-                    <img class="img-thumbnail" src="img/psa2.jpg">
-                </section>
-                <section>
-                    <img class="img-thumbnail" width="50%" src="img/invective2.png">
-                </section>
-                <section>
-                    <h1>Guilty</h1>
-                </section>
-                <section>
                     <h3>As Good as It Gets (1997)</h3>
                     <blockquote>
                         Melvin Udall : I've got this, what, ailment? My doctor, a shrink that I used to go to all the time, he says that in fifty or sixty percent of the cases, a pill really helps. I hate pills. Very dangerous thing, pills. Hate. I'm using the word "hate" here, about pills. Hate. 
@@ -707,6 +771,8 @@ PIL = 1.1.7
                 </section>
                 <section>
                     <img width="100%" src="img/what-is-this-i-dont-even.jpg">
+                    <aside class="notes">
+                    </aside>
                 </section>
 				<section>
                     <h1>Timeline</h1>
@@ -718,6 +784,8 @@ PIL = 1.1.7
                         </div>
                       </div>
                     </div>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Buildout 👍</h1>
@@ -729,6 +797,8 @@ PIL = 1.1.7
                         [pillow]
                         recipe = zc.recipe.egg
                     </pre>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Buildout 👍</h1>
@@ -743,9 +813,13 @@ PIL = 1.1.7
                             Pillow
                             Plone
                     </pre>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img width="70%" src="img/fireworks.webp">
+                    <aside class="notes">
+                    </aside>
                 </section>
 				<section>
                     <h1>Timeline</h1>
@@ -763,20 +837,28 @@ PIL = 1.1.7
                         </div>
                       </div>
                     </div>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Packaging fork</h1>
                     <blockquote>Pillow is a "friendly" fork of the Python Imaging Library. The goal is to see if any improvement can be made to the packaging situation by opening up development to the public.</blockquote>
                     <p>&mdash;Alex Clark, Pillow 1.0 README</p>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img src="img/unfriendly.png">
                     <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2012-December/007120.html">https://mail.python.org/pipermail/image-sig/2012-December/007120.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Unfriendly fork</h1>
                     <img src="img/unfriendly2.png">
                     <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2012-December/007120.html">https://mail.python.org/pipermail/image-sig/2012-December/007120.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
 				<section>
                     <h1>Timeline</h1>
@@ -788,19 +870,29 @@ PIL = 1.1.7
                         </div>
                       </div>
                     </div>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img src="img/python3.png">
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img src="img/pillow2.png">
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Python 3</h1>
                     <blockquote>Pillow &gt;= 2.0.0 supports Python versions: 2.6, 2.7, 3.2, 3.3</blockquote><blockquote>Pillow &lt; 2.0.0 supports Python versions: 2.4, 2.5, 2.6, 2.7</blockquote>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img width="70%" src="img/fireworks.webp">
+                    <aside class="notes">
+                    </aside>
                 </section>
 				<section>
                     <h1>Timeline</h1>
@@ -818,6 +910,8 @@ PIL = 1.1.7
                         </div>
                       </div>
                     </div>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1 id="">Logo by</h1>
@@ -825,12 +919,18 @@ PIL = 1.1.7
                     <blockquote>"Pillow should have a logo"</blockquote>
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/issues/575">https://github.com/python-pillow/Pillow/issues/575</a>
                     <p>Mar 26, 2014</p>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img src="img/pillow-logo-light-text-1280x640.png">
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img width="70%" src="img/fireworks.webp">
+                    <aside class="notes">
+                    </aside>
                 </section>
 				<section>
                     <h1>Arbitrary milestones issue!</h1>
@@ -838,14 +938,20 @@ PIL = 1.1.7
                     <blockquote>"We're at 2000 stars! Seems like only last month that we were at 1000."</blockquote>
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/issues/1512">https://github.com/python-pillow/Pillow/issues/1512</a>
                     <p>Oct 27, 2015</p>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Milestones</h1>
                     <img src="img/milestones.png">
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/issues/1512">https://github.com/python-pillow/Pillow/issues/1512</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img width="70%" src="img/fireworks.webp">
+                    <aside class="notes">
+                    </aside>
                 </section>
 				<section>
                     <h1>Timeline</h1>
@@ -857,96 +963,138 @@ PIL = 1.1.7
                         </div>
                       </div>
                     </div>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Release notes</h1>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img width="70%" src="img/fireworks.webp">
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Release notes</h4>
                     <img class="img-thumbnail" width="80%" src="img/releasenotes.png">
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Release notes</h4>
                     <img class="img-thumbnail" width="80%" src="img/releasenotes2.png">
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Release notes</h4>
                     <img class="img-thumbnail" width="80%" src="img/releasenotes3.png">
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Release notes</h4>
                     <img class="img-thumbnail" width="80%" src="img/releasenotes4.png">
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Release notes</h4>
                     <img class="img-thumbnail" width="80%" src="img/releasenotes5.png">
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Release notes</h4>
                     <img class="img-thumbnail" width="80%" src="img/releasenotes6.png">
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Release notes</h4>
                     <img class="img-thumbnail" width="80%" src="img/releasenotes7.png">
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Release notes</h4>
                     <img class="img-thumbnail" width="80%" src="img/releasenotes8.png">
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h2>Quarterly release schedule</h2>
                     <blockquote>"Pillow is released quarterly on January 2nd, April 1st, July 1st and October 15th. Patch releases are created if the latest release contains severe bugs, or if security fixes are put together before a scheduled release."</blockquote>
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" width="80%" src="img/releaseschedule.png">
                     <a target="_blank" href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">https://pillow.readthedocs.io/en/stable/releasenotes/index.html</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" width="80%" src="img/tidelift.png">
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/issues/3469">https://github.com/python-pillow/Pillow/issues/3469</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" src="img/tidelift3.png">
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/issues/3469">https://github.com/python-pillow/Pillow/issues/3469</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" src="img/tidelift2.png">
                     <a target="_blank" href="https://www.tidelift.com/about/lifter">https://www.tidelift.com/about/lifter</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Contributors 👏</h4>
                     <img class="img-thumbnail" width="70%" src="img/contributors.png">
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/graphs/contributors">https://github.com/python-pillow/Pillow/graphs/contributors</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Contributors 👏</h4>
                     <img class="img-thumbnail" width="70%" src="img/contributors2.png">
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/graphs/contributors">https://github.com/python-pillow/Pillow/graphs/contributors</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Contributors 👏</h4>
                     <img class="img-thumbnail" width="70%" src="img/contributors3.png">
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/graphs/contributors">https://github.com/python-pillow/Pillow/graphs/contributors</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h4>Contributors 👏</h4>
                     <img class="img-thumbnail" width="70%" src="img/contributors4.png">
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/graphs/contributors">https://github.com/python-pillow/Pillow/graphs/contributors</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>So many contributors and users. Thank you.</h1>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" src="img/tweet.png">
@@ -957,6 +1105,8 @@ PIL = 1.1.7
                 <section>
                     <img class="img-thumbnail" src="img/tweet4.png">
                     <a target="_blank" href="https://twitter.com/aclark4life/status/1316480179531907072">https://twitter.com/aclark4life/status/1316480179531907072</a>
+                    <aside class="notes">
+                    </aside>
                 </section>
 				<section>
                     <h1>Timeline</h1>
@@ -974,10 +1124,14 @@ PIL = 1.1.7
                         </div>
                       </div>
                     </div>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Thank you</h1>
                     <h1>🙏</h1>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Credits</h1>
@@ -985,6 +1139,8 @@ PIL = 1.1.7
                     <ul>
                         <li>Uniquely leverage existing intuitive infrastructures without collaborative mindshare. Progressively grow sustainable relationships vis-a-vis resource maximizing schemas. Intrinsicly generate synergistic imperatives whereas team driven outsourcing. Credibly.</li>
                     </ul>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Credits</h1>
@@ -992,6 +1148,8 @@ PIL = 1.1.7
                     <ul>
                         <li>Uniquely leverage existing intuitive infrastructures without collaborative mindshare. Progressively grow sustainable relationships vis-a-vis resource maximizing schemas. Intrinsicly generate synergistic imperatives whereas team driven outsourcing. Credibly.</li>
                     </ul>
+                    <aside class="notes">
+                    </aside>
                 </section>
                 <section>
                     <h1>Credits</h1>
@@ -999,6 +1157,8 @@ PIL = 1.1.7
                     <ul>
                         <li>Uniquely leverage existing intuitive infrastructures without collaborative mindshare. Progressively grow sustainable relationships vis-a-vis resource maximizing schemas. Intrinsicly generate synergistic imperatives whereas team driven outsourcing. Credibly.</li>
                     </ul>
+                    <aside class="notes">
+                    </aside>
                 </section>
 				<section>
                     <h1>Alex Clark</h1>
@@ -1012,6 +1172,8 @@ PIL = 1.1.7
                         <li style="display: inline" class="mr-4"><a target="_blank" class="text-decoration-none" href="https://github.com/python-pillow/state-of-pillow"><i class="fas fa-file-pdf"></i> state-of-pillow</a></li>
                     </ul>
                     </div>
+                    <aside class="notes">
+                    </aside>
                 </section>
 			</div>
 		</div>
