@@ -683,43 +683,47 @@ newest = false
                     </pre>
                     <h1>!?</h1>
                     <aside class="notes">
+                        Unless newest equals false!
                     </aside>
                 </section>
                 <section>
-                    <h1>Just kidding!</h1>
+                    <h1>Kidding!</h1>
                     <p>
                         <code>newest = false</code>
                     </p>
-                    <h1>Only matters if</h1>
+                    <h2>Only matters if</h2>
                     <ul class="mt-3">
                         <li>PIL already installed</li>
                         <li>Network down</li>
                     </ul>
                     <a target="_blank" href="http://www.buildout.org/en/latest/reference.html#buildout-configuration-options">http://www.buildout.org/en/latest/reference.html#buildout-configuration-options</a>
                     <aside class="notes">
+                        Kidding. But things could still go wrong.
                     </aside>
                 </section>
                 <section>
                     <img width="100%" src="img/what-is-this-i-dont-even.jpg">
                     <aside class="notes">
+                        I wanted things to not go wrong. To be less ambiguous. 
                     </aside>
                 </section>
                 <section>
                     <blockquote>"For this you will pay a terrible price."</blockquote>
                     <p>&mdash;Ancient Proverb</p>
                     <aside class="notes">
+                        Using third party distributions was OK but I wanted something better.
                     </aside>
                 </section>
                 <section>
                     <h1>Like watching a car crash</h1>
                     <aside class="notes">
-                        As I look back now, it's like watching a car crash in slow motion.
+                        Again as I look back now, it's like watching a slow motion car crash.
                     </aside>
                 </section>
                 <section>
                     <img src="img/road-junction.jpg">
                     <aside class="notes">
-                        As I said looking back it's like watching a slow motion car crash.
+                        With Python, PIL, Zope, distutils, setuptools and Buildout all colliding.
                     </aside>
                 </section>
                 <section>
@@ -731,7 +735,7 @@ newest = false
                 <section>
                     <h1>Hence, Pillow</h1>
                     <aside class="notes">
-                        Then one day I had had enough.
+                        Then one day I had enough.
                     </aside>
                 </section>
 				<section>
@@ -744,22 +748,40 @@ newest = false
                         </div>
                       </div>
                     </div>
+                    <aside class="notes">
+                        I decided to take a popular third party repackaging and upload to PyPI.
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" src="img/slide17.png">
+                    <aside class="notes">
+                        Here it is. It's still there.
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" width="80%" src="img/diff.png">
+                    <aside class="notes">
+                        Created by Chris McDonough and Hanno Schlichting
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" width="80%" src="img/diff2.png">
+                    <aside class="notes">
+                        Importing setup from setuptools. I realized I forgot to credit Chris.
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" src="img/tweet3.png">
+                    <aside class="notes">
+                        Tweeted apology and pull request.
+                    </aside>
                 </section>
                 <section>
                     <img class="img-thumbnail" width="80%" src="img/fixed.png">
                     <a target="_blank" href="https://github.com/python-pillow/Pillow/pull/5078">https://github.com/python-pillow/Pillow/pull/5078</a>
+                    <aside class="notes">
+                        Pull request accepted
+                    </aside>
                 </section>
                 <section>
                     <h3>As Good as It Gets (1997)</h3>
@@ -767,13 +789,16 @@ newest = false
                         Melvin Udall : I've got this, what, ailment? My doctor, a shrink that I used to go to all the time, he says that in fifty or sixty percent of the cases, a pill really helps. I hate pills. Very dangerous thing, pills. Hate. I'm using the word "hate" here, about pills. Hate. 
                     </blockquote>
                     <a target="_blank" href="https://www.imdb.com/title/tt0119822/?ref_=tt_ch">https://www.imdb.com/title/tt0119822/?ref_=tt_ch</a>
+                    <aside class="notes">
+                        So I hated the status quo so much I decided to take the next step.
+                    </aside>
                 </section>
 				<section>
                     <h4>Image-SIG</h4>
                     <img width="80%" src="img/slide.png">
                     <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-August/006480.html">https://mail.python.org/pipermail/image-sig/2010-August/006480.html</a>
                     <aside class="notes">
-                        patch
+                        Incidentally there was at least one patch sent by elro after Pillow 1.0 was released.
                     </aside>
                 </section>
 				<section>
@@ -781,12 +806,13 @@ newest = false
                     <img width="80%" src="img/slide19.png">
                     <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2010-August/006480.html">https://mail.python.org/pipermail/image-sig/2010-August/006480.html</a>
                     <aside class="notes">
-                        patch
+                        To resolve issues by using setuptools.
                     </aside>
                 </section>
                 <section>
                     <img width="100%" src="img/what-is-this-i-dont-even.jpg">
                     <aside class="notes">
+                        Lesson: use setuptools.
                     </aside>
                 </section>
 				<section>
@@ -800,6 +826,7 @@ newest = false
                       </div>
                     </div>
                     <aside class="notes">
+                        With Pillow 1.0 I got the buildout of my dreams.
                     </aside>
                 </section>
                 <section>
@@ -813,6 +840,7 @@ newest = false
                         recipe = zc.recipe.egg
                     </pre>
                     <aside class="notes">
+                        This works.
                     </aside>
                 </section>
                 <section>
@@ -829,11 +857,13 @@ newest = false
                             Plone
                     </pre>
                     <aside class="notes">
+                        And this works.
                     </aside>
                 </section>
                 <section>
                     <img width="70%" src="img/fireworks.webp">
                     <aside class="notes">
+                        I wept tears of joy.
                     </aside>
                 </section>
 				<section>
@@ -853,6 +883,7 @@ newest = false
                       </div>
                     </div>
                     <aside class="notes">
+                        Now I can finally tell you the state of Pillow
                     </aside>
                 </section>
                 <section>
@@ -860,12 +891,14 @@ newest = false
                     <blockquote>Pillow is a "friendly" fork of the Python Imaging Library. The goal is to see if any improvement can be made to the packaging situation by opening up development to the public.</blockquote>
                     <p>&mdash;Alex Clark, Pillow 1.0 README</p>
                     <aside class="notes">
+                        First the first two years, Pillow was a "packaging fork"
                     </aside>
                 </section>
                 <section>
                     <img src="img/unfriendly.png">
                     <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2012-December/007120.html">https://mail.python.org/pipermail/image-sig/2012-December/007120.html</a>
                     <aside class="notes">
+                        We added filesystem paths to setup.py, made other small changes, and attempted to upstream fixes to PIL.
                     </aside>
                 </section>
                 <section>
@@ -873,6 +906,7 @@ newest = false
                     <img src="img/unfriendly2.png">
                     <a target="_blank" href="https://mail.python.org/pipermail/image-sig/2012-December/007120.html">https://mail.python.org/pipermail/image-sig/2012-December/007120.html</a>
                     <aside class="notes">
+                        Then a guy named Brian Crowell came along and added support for Python 3. I sent another mail to Image-SIG.
                     </aside>
                 </section>
 				<section>
