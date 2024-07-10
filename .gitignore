@@ -1,0 +1,6 @@
+__pycache__
+*.pyc
+dist/
+node_modules/
+_build/
+.elasticbeanstalk/
