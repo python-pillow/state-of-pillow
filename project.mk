@@ -4,3 +4,6 @@ serve:
 	$(MAKE) reveal-serve
 
 install: pip-install npm-install
+
+edit:
+	vi index.html
